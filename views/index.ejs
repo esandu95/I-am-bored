@@ -36,14 +36,23 @@
     <section id="cards" class="cards">
       <article class="card-item">
         <h2 class="card-activity">
+          <% if(locals.data) {%>
           <%= data.activity %>
+          <% }else{ %>
+            <%= error %>
+            <% } %>
         </h2>
         <div class="card-info">
           <span class="card-type">
+            <% if(locals.data) {%>
             <%= data.type %>
+            <% } %>
           </span>
           <span class="card-participants">
+            <% if(locals.data) {%>
+              participants: 
             <%= data.participants %>
+            <% } %>
             <span class="card-number"></span>
           </span>
         </div>
