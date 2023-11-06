@@ -23,17 +23,18 @@ app.get("/", async (req, res) => {
 });
 
 app.post("/form", async (req, res) => {
-  console.log(req.body);
 
   try {
+
     const response = await axios.get(`https://bored-api.appbrewery.com/filter?type=${req.body["type"]}&participants=${req.body["participants"]}`);
     const result = response.data;
     const randomNumber = Math.floor(Math.random() * result.length);
-    res.render("index.ejs", { selectedData: result,rNumber:randomNumber });
+    const selectedData = result[randomNumber];
+    res.render("index.ejs", { data: selectedData});
   } catch (error) {
     console.error("Failed to make request:", error.message);
     res.render("index.ejs", {
-      error: error.message,
+      error: "No activities that match your criteria.",
     });
   }
 

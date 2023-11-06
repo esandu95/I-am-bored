@@ -36,28 +36,14 @@
     <section id="cards" class="cards">
       <article class="card-item">
         <h2 class="card-activity">
-
-          <% if (locals.selectedData) { %>
-             <%=   selectedData[rNumber].activity%>
-           <% }else{ %>
-            <%= data.activity %>
-            <% } %>
+          <%= data.activity %>
         </h2>
         <div class="card-info">
           <span class="card-type">
-            <% if (locals.selectedData) { %>
-              <%=   selectedData[rNumber].type%>
-            <% }else{ %>
-             <%= error %>
-             <% } %>
+            <%= data.type %>
           </span>
           <span class="card-participants">
-            <% if (locals.selectedData) { %>
-              participants: 
-              <%=   selectedData[rNumber].participants%>
-            <% }else{ %>
-             <%= data.participants %>
-             <% } %>
+            <%= data.participants %>
             <span class="card-number"></span>
           </span>
         </div>
